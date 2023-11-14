@@ -168,12 +168,11 @@ void QueueSimulator::calculatePerformanceMeasures() {
 
     cout << "Queue 1:" << endl;
     cout << "Number of Customers: " << totalQueueLength1 << endl;
-    cout << "Average Number of Customers (L): " << averageL1 << endl;
-    cout << "Average Number of Customers in Queue (LQ): " << averageLQ1 << endl;
-    cout << "Average Time in System (W): " << averageW1 << endl;
-    cout << "Average Time in Queue (WQ): " << averageWQ1 << endl;
-    cout << "Traffic Intensity (rho): " << rho1 << endl;
-    cout << endl;
+    cout << "Average Number of Customers (L1): " << averageL1 << endl;
+    cout << "Average Number of Customers in Queue (LQ1): " << averageLQ1 << endl;
+    cout << "Average Time in System (W1): " << averageW1 << endl;
+    cout << "Average Time in Queue (WQ1): " << averageWQ1 << endl;
+    cout << "Traffic Intensity (rho1): " << rho1 << endl;
 
     // Queue 2 measures
     double averageL2 = totalQueueLength2 / clock;
@@ -182,14 +181,14 @@ void QueueSimulator::calculatePerformanceMeasures() {
     double averageWQ2 = averageW2 - 1.0 / mu2; // Little's Law
     double rho2 = averageL2 / mu2;
 
+    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << "Queue 2:" << endl;
     cout << "Number of Customers: " << totalQueueLength2 << endl;
-    cout << "Average Number of Customers (L): " << averageL2 << endl;
-    cout << "Average Number of Customers in Queue (LQ): " << averageLQ2 << endl;
-    cout << "Average Time in System (W): " << averageW2 << endl;
-    cout << "Average Time in Queue (WQ): " << averageWQ2 << endl;
-    cout << "Traffic Intensity (rho): " << rho2 << endl;
-    cout << endl;
+    cout << "Average Number of Customers (L2): " << averageL2 << endl;
+    cout << "Average Number of Customers in Queue (LQ2): " << averageLQ2 << endl;
+    cout << "Average Time in System (W2): " << averageW2 << endl;
+    cout << "Average Time in Queue (WQ2): " << averageWQ2 << endl;
+    cout << "Traffic Intensity (rho2): " << rho2 << endl;
 
     // Queue 3 measures
     double averageL3 = totalQueueLength3 / clock;
@@ -198,13 +197,14 @@ void QueueSimulator::calculatePerformanceMeasures() {
     double averageWQ3 = averageW3 - 1.0 / mu3; // Little's Law
     double rho3 = averageL3 / mu3;
 
+    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << "Queue 3:" << endl;
     cout << "Number of Customers: " << totalQueueLength3 << endl;
-    cout << "Average Number of Customers (L): " << averageL3 << endl;
-    cout << "Average Number of Customers in Queue (LQ): " << averageLQ3 << endl;
-    cout << "Average Time in System (W): " << averageW3 << endl;
-    cout << "Average Time in Queue (WQ): " << averageWQ3 << endl;
-    cout << "Traffic Intensity (rho): " << rho3 << endl << endl;
+    cout << "Average Number of Customers (L3): " << averageL3 << endl;
+    cout << "Average Number of Customers in Queue (LQ3): " << averageLQ3 << endl;
+    cout << "Average Time in System (W3): " << averageW3 << endl;
+    cout << "Average Time in Queue (WQ3): " << averageWQ3 << endl;
+    cout << "Traffic Intensity (rho3): " << rho3 << endl << endl;
 
     double totalResponseTime = 0.0;
     double totalCustomers = totalQueueLength1 + totalQueueLength2 + totalQueueLength3;
@@ -226,12 +226,14 @@ void QueueSimulator::calculatePerformanceMeasures() {
 
     }
     double averageResponseTime = totalResponseTime / totalCustomers;
-
+    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << "Network-wide Measures:" << endl;
     cout << "Average Response Time (R): " << averageResponseTime << endl;
-    cout << "Average Number of Customers in the Network (N): " << totalCustomers / clock << endl;
     cout << "Average Time in System (W): " << averageW << endl;
     cout << "Total Time in System (T): " << totalSystemTime << endl;
+    cout << "Average Number of Customers in the Network (N): \n\t\tL1 + L2 + L3 = " << averageL1 + averageL2 + averageL3 << endl;
+    cout << "\t\t[Number of all customers] / time = " << totalCustomers / clock << endl;
+    cout << "Average Number of Customers in Queuees: LQ1 + LQ2 + LQ3 = " << averageLQ1 + averageLQ2 + averageLQ3 << endl;
 
 }
 
